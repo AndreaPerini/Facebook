@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Facebook {
 
 	private static Scanner sc = new Scanner(System.in);
