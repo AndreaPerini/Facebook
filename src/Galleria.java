@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Galleria {
 
-	private List<Foto> galleria;
+	private ArrayList<Foto> galleria;
 	// private Foto[] galleria = new Foto[100];
 	static int indice = 0;
 
@@ -16,15 +16,25 @@ public class Galleria {
 		indice++;
 	}
 
-	public Foto searchPhotoByTag(String tag) {
-		System.out.println(tag);
+	public Foto searchPhotoByTitolo(String titolo) {
+		System.out.println(titolo);
 		for (int i = 0; i < galleria.size(); i++) {
-			System.out.println(galleria.get(i).toString());
-			if (tag.equals(galleria.get(i).getTitolo())) {
-				System.out.println("Ritorno");
+			if (titolo.equals(galleria.get(i).getTitolo())) {
 				return galleria.get(i);
 			}
 		}
 		return null;
+	}
+
+	public void contaTagAmico(String nome_cognome) {
+		int cont = 0;
+		System.out.println("Cerco foto di " + nome_cognome);
+		for(int i = 0; i < galleria.size(); i++) {
+			//System.out.println(galleria.get(i).getTag().getNome() + " " + galleria.get(i).getTag().getCognome());
+			if(nome_cognome.equals(galleria.get(i).getTag().getNome() + " " + galleria.get(i).getTag().getCognome())) {
+				cont++;
+			}
+		}
+		System.out.println(nome_cognome + " è presente in " + cont + " foto.");
 	}
 }

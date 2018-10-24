@@ -7,7 +7,7 @@ public class Facebook {
 	private static Utente profilo = new Utente("Lorenzo", "Avallone", 17);
 	private static Amici amici = new Amici();
 	private static Galleria galleria = new Galleria();
-	private static String newName, newSurname, newTitolo, tag;
+	private static String newName, newSurname, newTitolo, titolo;
 	private static int scelta, newEta;
 
 	private static void addAmico() {
@@ -32,16 +32,19 @@ public class Facebook {
 		System.out.println("Inserisci il cognome.");
 		newSurname = sc.next();
 		newName = newName + " " + newSurname;
-		System.out.println("Inserisci il tag.");
-		tag = sc.next();
-		galleria.searchPhotoByTag(tag).tagAmico(amici.searchAmico(newName));
+		System.out.println("Inserisci il titolo.");
+		titolo = sc.next();
+		galleria.searchPhotoByTitolo(titolo).tagAmico(amici.searchAmico(newName));
 	}
 
 	public static void main(String[] args) {
 		do {
 
 			System.out.println("Bentornato " + profilo.getNome() + " " + profilo.getCognome()
-					+ " \nCosa vuoi fare?\n1) Aggiungere un amico\n2) Aggiungere una foto");
+					+ " \nCosa vuoi fare?\n"
+					+ "1) Aggiungere un amico.\n"
+					+ "2) Aggiungere una foto.\n"
+					+ "3) Taggare un amico.");
 			scelta = sc.nextInt();
 			switch (scelta) {
 
@@ -56,7 +59,14 @@ public class Facebook {
 			case 3:
 				tagFriend();
 				break;
-
+			case 4:
+				System.out.println("Inserisci il nome.");
+				newName = sc.next();
+				System.out.println("Inserisci il cognome.");
+				newSurname = sc.next();
+				newName = newName + " " + newSurname;
+				galleria.contaTagAmico(newName);
+				break;
 			default:
 				scelta = 0;
 				break;

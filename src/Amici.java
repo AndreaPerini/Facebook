@@ -25,5 +25,6 @@ public class Amici {
 	public void addAmico(Utente utente) {
 		amici.add(utente);
 	}
+	
 
 }
