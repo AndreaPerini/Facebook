@@ -22,7 +22,7 @@ public class Facebook {
 
 	private static void addFoto() {
 		System.out.println("Inserisci titolo foto.");
-		newTitolo = sc.next();
+		newTitolo = sc.nextLine();
 		galleria.addFoto(new Foto(newTitolo));
 	}
 
@@ -46,6 +46,7 @@ public class Facebook {
 					+ "2) Aggiungere una foto.\n"
 					+ "3) Taggare un amico.");
 			scelta = sc.nextInt();
+			sc.nextLine();
 			switch (scelta) {
 
 			case 1:
@@ -67,6 +68,8 @@ public class Facebook {
 				newName = newName + " " + newSurname;
 				galleria.contaTagAmico(newName);
 				break;
+			case 5:
+				galleria.bestFriend(amici.getList());
 			default:
 				scelta = 0;
 				break;

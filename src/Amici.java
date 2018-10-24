@@ -26,5 +26,7 @@ public class Amici {
 		amici.add(utente);
 	}
 	
-
+	public List<Utente> getList() {
+		return amici;
+	}
 }
