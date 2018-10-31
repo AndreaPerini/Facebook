@@ -76,5 +76,4 @@ public class Facebook {
 			}
 		} while (scelta != 0);
 	}
-
 }
